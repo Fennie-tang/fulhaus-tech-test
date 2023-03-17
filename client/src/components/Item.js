@@ -8,14 +8,13 @@ const Item = ({ imageURLs, fulhausProductName, retailPrice }) => {
   const addCartHandler = (name) => {
     const update = cart.map((item) => {
       if (cart.length === 0) {
-         setCart({ name, qte: 1 });
+        setCart({ name, qte: 1 });
       }
       if (item.name === name) {
         return (item.qte += 1);
       }
     });
     console.log(update);
-
     setCart(update);
   };
   console.log("cart", cart);
@@ -28,6 +27,8 @@ const Item = ({ imageURLs, fulhausProductName, retailPrice }) => {
       <PurchaseLine>
         <span>${retailPrice}</span>
         <BsCartPlus
+          size={20}
+          cursor="pointer"
           color="red"
           onClick={() => {
             addCartHandler(fulhausProductName, retailPrice);
