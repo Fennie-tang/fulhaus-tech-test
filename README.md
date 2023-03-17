@@ -3,7 +3,7 @@ File composed of both Front-end and back-end coding
 
 ## Back-end Installation
 Create .env file in the Server folder. 
-In the file write the following code and fill in the necessary requirements for username, password:
+In the file write the following code and fill in the necessary requirements for username, password, and database:
 
 ```bash
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority
@@ -19,6 +19,10 @@ yarn install
 ```
 ```bash
 node batchimport.js
+```
+In a separate terminal:
+```bash
+cd server
 ```
 ```bash
 yarn start
