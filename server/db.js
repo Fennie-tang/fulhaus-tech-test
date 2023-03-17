@@ -22,8 +22,6 @@ const dbConn = async () => {
     console.log(err);
     throw error;
   }
-  //   client.close()
-  //   console.log("disconnected")
 };
 
 module.exports = dbConn;

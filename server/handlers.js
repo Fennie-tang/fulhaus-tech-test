@@ -6,16 +6,13 @@ const { v4: uuidv4 } = require("uuid");
 const getAcronym = async (req, res) => {
   try {
     const db = await dbConn();
-
     const allAcronyms = await db.collection("acronyms").find().toArray();
 
     res.status(200).json({ status: 200, data: allAcronyms });
   } catch (err) {
     console.log(err);
     res.status(400).json({ status: 400, message: "Error!" });
-  } finally {
-    db.close();
-  }
+  } 
 };
 
 // returns specific Acronym
@@ -42,12 +39,10 @@ const createAcronym = async (req, res) => {
     return res
       .status(400)
       .json({ status: 400, message: "Error! creating acronym" });
-  } finally {
-    db.close();
-  }
+  } 
 };
 
-//Update acronym
+//Updates acronym
 const updateAcronym = async (req, res) => {
   try {
     const db = await dbConn();
@@ -83,9 +78,7 @@ const updateAcronym = async (req, res) => {
     return res.status(200).json({ status: 200, _id, data: req.body });
   } catch (err) {
     res.status(400).json({ status: 400, message: "Error! updating acronym" });
-  } finally {
-    db.close();
-  }
+  } 
 };
 
 //Delete acronym
@@ -100,9 +93,7 @@ const deleteAcronym = async (req, res) => {
     return res
       .status(404)
       .json({ status: 404, message: "acronym was not deleted" });
-  } finally {
-    db.close();
-  }
+  } 
 };
 
 module.exports = {
