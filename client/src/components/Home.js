@@ -53,7 +53,6 @@ const RightSide = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  border: 2px solid blue;
   img {
     width: 200px;
     height: 200px;

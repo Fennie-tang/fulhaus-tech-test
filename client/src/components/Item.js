@@ -5,10 +5,10 @@ import { BsCartPlus } from "react-icons/bs";
 const Item = ({ imageURLs, fulhausProductName, retailPrice }) => {
   const { cart, setCart } = useContext(CartContext);
 
-  const addCartHanlder = (name) => {
+  const addCartHandler = (name) => {
     const update = cart.map((item) => {
       if (cart.length === 0) {
-        setCart({ name, qte: 1 });
+         setCart({ name, qte: 1 });
       }
       if (item.name === name) {
         return (item.qte += 1);
@@ -27,11 +27,10 @@ const Item = ({ imageURLs, fulhausProductName, retailPrice }) => {
       </Info>
       <PurchaseLine>
         <span>${retailPrice}</span>
-
         <BsCartPlus
           color="red"
           onClick={() => {
-            addCartHanlder(fulhausProductName);
+            addCartHandler(fulhausProductName, retailPrice);
           }}
         ></BsCartPlus>
       </PurchaseLine>
@@ -43,7 +42,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  border: 1px solid red;
+  border: 1px solid lightgrey;
   width: 250px;
   margin: 5px;
 `;
@@ -52,6 +51,8 @@ const PurchaseLine = styled.div`
   gap: 150px;
 `;
 const Info = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   padding-bottom: 30px;
 `;
 export default Item;

@@ -15,7 +15,6 @@ const dbConn = async () => {
   try {
     const client = await new MongoClient(MONGO_URI, options);
     await client.connect();
-    console.log("connected");
     const db = client.db("Acronym");
     return db;
   } catch (err) {
